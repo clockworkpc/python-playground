@@ -1,4 +1,4 @@
-# codesignal_exercises
+# Python Coding Practice
 
 This is a demonstration of my approach to solving basic coding problems in Python.
 It contains tests and solutions under the following headings:
