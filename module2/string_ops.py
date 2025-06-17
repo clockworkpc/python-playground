@@ -16,5 +16,17 @@ class StringOps(Base):
             clean = lambda x: re.sub(r'[^A-Za-z0-9]', '', x)
             cleaned = [clean(s) for s in args if s]
             return list(chain.from_iterable(cleaned))
+    
+    @staticmethod
+    def compare_strings(a: str, b:str) -> bool:
+        return a == b
+
+    @staticmethod
+    def concat_strings(a: str, b: str) -> str:
+        return a + b
+    
+    @staticmethod
+    def reverse_string(a: str) -> str:
+        return a[::-1]
 
 
