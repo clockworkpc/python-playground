@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-17T12:53:51-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Alexander Garber’s Python Showcase</title><subtitle>CodeSignal-inspired Python exercises and solutions.</subtitle><entry><title type="html">Module 1 - Array Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module1-array-ops.html" rel="alternate" type="text/html" title="Module 1 - Array Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module1-array-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module1-array-ops.html"><![CDATA[<h1 id="module-1---array-operations">Module 1 - Array Operations</h1>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">ArrayOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>    
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">array_doubler</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">even_filter</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">if</span> <span class="n">val</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">every_other_element</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">last_digit_extractor</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nf">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">index_parity_mask</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">val</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">)]</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 1 - Array Operations]]></summary></entry><entry><title type="html">Module 1 – Number Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module1-number-ops.html" rel="alternate" type="text/html" title="Module 1 – Number Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module1-number-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module1-number-ops.html"><![CDATA[<h1 id="module-1--number-operations">Module 1 – Number Operations</h1>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">NumberOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>    
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">increment_by_index</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">)]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">modulo_alternator</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">running_total</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">val</span>
+            <span class="n">result</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">double_negatives</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">val</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_numeric</span>
+    <span class="k">def</span> <span class="nf">absolute_shift</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">new_nums</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+            <span class="n">addend</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">new_nums</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">val</span> <span class="o">+</span> <span class="n">addend</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_nums</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 1 – Number Operations]]></summary></entry><entry><title type="html">Module 1 – String Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module1-string-ops.html" rel="alternate" type="text/html" title="Module 1 – String Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module1-string-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module1-string-ops.html"><![CDATA[<h1 id="module-1--string-operations">Module 1 – String Operations</h1>
+
+<p>This function reverses a list:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+
+<span class="k">class</span> <span class="nc">StringOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_string</span>
+    <span class="k">def</span> <span class="nf">vowel_remover</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">vowels</span> <span class="o">=</span> <span class="nf">set</span><span class="p">(</span><span class="sh">'</span><span class="s">aeiouy</span><span class="sh">'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">ch</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_string</span>
+    <span class="k">def</span> <span class="nf">reverse_words</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">reversed</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_string</span>
+    <span class="k">def</span> <span class="nf">initials_extractor</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">split</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sh">""</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">])</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_string</span>
+    <span class="k">def</span> <span class="nf">duplicate_separator</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sh">''</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="n">val</span> <span class="o">+</span> <span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nf">list</span><span class="p">(</span><span class="n">s</span><span class="p">)])</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_string</span>
+    <span class="k">def</span> <span class="nf">title_casing</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="nf">title</span><span class="p">()</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 1 – String Operations]]></summary></entry><entry><title type="html">Module 2 - Array Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module2-array-ops.html" rel="alternate" type="text/html" title="Module 2 - Array Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module2-array-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module2-array-ops.html"><![CDATA[<h1 id="module-2---array-operations">Module 2 - Array Operations</h1>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="n">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">import</span> <span class="n">re</span>
+
+<span class="k">class</span> <span class="nc">ArrayOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>    
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">double_array</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">reverse_array</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">concat_arrays</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 2 - Array Operations]]></summary></entry><entry><title type="html">Module 2 – Number Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module2-number-ops.html" rel="alternate" type="text/html" title="Module 2 – Number Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module2-number-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module2-number-ops.html"><![CDATA[<h1 id="module-2--number-operations">Module 2 – Number Operations</h1>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="n">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">import</span> <span class="n">re</span>
+
+<span class="k">class</span> <span class="nc">NumberOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>    
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_binary_numeric</span>
+    <span class="k">def</span> <span class="nf">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_unary_list</span>
+    <span class="k">def</span> <span class="nf">split_digits</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nf">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nf">str</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 2 – Number Operations]]></summary></entry><entry><title type="html">Module 2 – String Operations</title><link href="http://localhost:4000/jekyll/update/2025/06/17/module2-string-ops.html" rel="alternate" type="text/html" title="Module 2 – String Operations" /><published>2025-06-17T00:00:00-04:00</published><updated>2025-06-17T00:00:00-04:00</updated><id>http://localhost:4000/jekyll/update/2025/06/17/module2-string-ops</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/06/17/module2-string-ops.html"><![CDATA[<h1 id="module-2--string-operations">Module 2 – String Operations</h1>
+
+<p>This function reverses a list:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="n">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">import</span> <span class="n">re</span>
+
+<span class="k">class</span> <span class="nc">StringOps</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>    
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@Base.safe_transform_multiple_strings</span>
+    <span class="k">def</span> <span class="nf">split_words</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">split</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">clean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="p">.</span><span class="nf">sub</span><span class="p">(</span><span class="sa">r</span><span class="sh">'</span><span class="s">[^A-Za-z0-9]</span><span class="sh">'</span><span class="p">,</span> <span class="sh">''</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">cleaned</span> <span class="o">=</span> <span class="p">[</span><span class="nf">clean</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">args</span> <span class="k">if</span> <span class="n">s</span><span class="p">]</span>
+            <span class="k">return</span> <span class="nf">list</span><span class="p">(</span><span class="n">chain</span><span class="p">.</span><span class="nf">from_iterable</span><span class="p">(</span><span class="n">cleaned</span><span class="p">))</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">compare_strings</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">concat_strings</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Module 2 – String Operations]]></summary></entry></feed>
