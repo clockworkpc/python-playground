@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from module1.array_ops import ArrayOps
+from code.module1.array_ops import ArrayOps
 import pytest
 
 def test_array_doubler():

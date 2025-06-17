@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from module1.number_ops import NumberOps
+from code.module1.number_ops import NumberOps
 import pytest
 
 def test_increment_by_index():

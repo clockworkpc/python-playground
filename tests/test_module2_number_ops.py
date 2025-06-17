@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from module2.number_ops import NumberOps
+from code.module2.number_ops import NumberOps
 import pytest
 
 def test_add_positive():

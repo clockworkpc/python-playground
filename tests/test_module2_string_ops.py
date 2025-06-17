@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from module2.string_ops import StringOps
+from code.module2.string_ops import StringOps
 import pytest
 
 def test_basic_split():

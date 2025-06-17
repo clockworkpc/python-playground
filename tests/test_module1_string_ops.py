@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from module1.string_ops import StringOps
+from code.module1.string_ops import StringOps
 import pytest
 
 def test_vowel_remover():
