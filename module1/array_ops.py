@@ -1,7 +1,7 @@
 from base import Base
 from typing import List
 
-class Arrays(Base):
+class ArrayOps(Base):
     def __init__(self, value: int):
         self.value = value    
 

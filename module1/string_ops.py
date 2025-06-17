@@ -1,6 +1,6 @@
 from base import Base
 
-class Strings(Base):
+class StringOps(Base):
     def __init__(self, value: str):
         self.value = value
 
