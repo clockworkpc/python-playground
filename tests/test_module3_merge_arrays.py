@@ -17,3 +17,18 @@ def test_merge_second_empty():
 
 def test_merge_both_empty():
     assert Arrays.merge_sorted_arrays([], []) == []
+
+def test_interleave_equal():
+    assert Arrays.interleave_arrays([1,2], [3,4]) == [1,3,2,4]
+
+def test_interleave_a_longer():
+    assert Arrays.interleave_arrays([1,2,3], [4]) == [1,4,2,3]
+
+def test_interleave_b_longer():
+    assert Arrays.interleave_arrays([1], [2,3,4]) == [1,2,3,4]
+
+def test_interleave_empty_first():
+    assert Arrays.interleave_arrays([], [9, 8]) == [9, 8]
+
+def test_interleave_both_empty():
+    assert Arrays.interleave_arrays([], []) == []

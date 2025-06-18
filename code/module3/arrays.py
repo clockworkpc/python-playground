@@ -63,3 +63,31 @@ class Arrays(Base):
 
         return merged
 
+    # @staticmethod
+    # def interleave_arrays(a: List[int], b: List[int]) -> List[int]:
+    #     x, y = 0, 0
+    #     next_pointer = 'x'
+    #     merged = []
+    #
+    #     while x < len(a) and y < len(b):
+    #         if next_pointer == 'x':
+    #             merged.append(a[x])
+    #             x += 1
+    #             next_pointer = 'y'
+    #         elif next_pointer == 'y':
+    #             merged.append(b[y])
+    #             y += 1
+    #             next_pointer = 'x'
+    #
+    #     merged.extend(a[x:])
+    #     merged.extend(b[y:])
+    #
+    #     return merged
+
+    @staticmethod
+    def interleave_arrays(a: List[int], b: List[int]) -> List[int]:
+        zipped_pairs = list(zip(a, b))
+        merged = [item for pair in zipped_pairs for item in pair]
+        merged.extend(a[len(b):])
+        merged.extend(b[len(a):])
+        return merged 

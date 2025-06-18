@@ -9,3 +9,10 @@ class Hashmaps(Base):
     @staticmethod
     def count_frequencies(items: List[str]) -> Dict[str, int]:
         return dict(Counter(items))
+
+    @staticmethod
+    def invert_dict(d: Dict[str, str]) -> Dict[str, str]:
+        inverted_dict = {}
+        for k,v in d.items():
+            inverted_dict[v] = k
+        return inverted_dict

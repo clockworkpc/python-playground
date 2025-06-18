@@ -17,3 +17,18 @@ def test_count_case_sensitive():
 
 def test_count_numeric_keys():
     assert Hashmaps.count_frequencies(["1", "2", "1"]) == {"1": 2, "2": 1}
+
+def test_invert_basic():
+    assert Hashmaps.invert_dict({"a": "1", "b": "2"}) == {"1": "a", "2": "b"}
+
+def test_invert_single():
+    assert Hashmaps.invert_dict({"x": "y"}) == {"y": "x"}
+
+def test_invert_same_values():
+    assert Hashmaps.invert_dict({"a": "z", "b": "z"}) == {"z": "b"}  # last wins
+
+def test_invert_empty():
+    assert Hashmaps.invert_dict({}) == {}
+
+def test_invert_numeric_keys():
+    assert Hashmaps.invert_dict({"1": "one", "2": "two"}) == {"one": "1", "two": "2"}
