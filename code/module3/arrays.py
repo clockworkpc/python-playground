@@ -1,11 +1,17 @@
 from base import Base
-from typing import List, Union, Any
+from typing import List, Union, Any, Optional
 from itertools import chain
 import re
 
 class Arrays(Base):
     def __init__(self, value: str):
         self.value = value
+
+    _rotation_registry = {}
+
+    @staticmethod
+    def sum_nested_matrix(matrix: List[List[int]]) -> int:
+        return sum(sum(row) for row in matrix)
 
     @staticmethod
     def flatten_2d(nested: List[List[int]]) -> List[int]:
@@ -20,9 +26,18 @@ class Arrays(Base):
         return [n * 2 for n in nums if n]
 
     @staticmethod
+    def square_return(nums: List[int]) -> List[int]:
+        return [n * n for n in nums if n]
+
+    @staticmethod
     def process_and_filter(nums: List[int]) -> List[int]:
         filtered = Arrays.filter_evens(nums)
         return Arrays.double_normal(filtered)
+
+    @staticmethod
+    def filter_and_square_evens(nums: List[int]) -> List[int]:
+        filtered = Arrays.filter_evens(nums)
+        return Arrays.square_return(filtered)
     
     @staticmethod
     def transpose(matrix: List[List[int]]) -> List[List[int]]:
