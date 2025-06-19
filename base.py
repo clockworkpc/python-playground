@@ -1,13 +1,49 @@
-from typing import List, Callable, TypeVar
+from typing import List, Callable, TypeVar, get_origin, get_args
 from functools import wraps
+from inspect import signature
 
 T = TypeVar("T")
 U = TypeVar("U")
 
 class Base:
-    """
-    A namespace for our two “safe transform” decorators.
-    """
+    @staticmethod
+    def enforce_types(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            sig = signature(func)
+            bound = sig.bind(*args, **kwargs)
+            bound.apply_defaults()
+
+            for name, value in bound.arguments.items():
+                expected = func.__annotations__.get(name)
+                if expected is None:
+                    continue
+
+                try:
+                    Base._check_type(value, expected, param=name)
+                except TypeError as e:
+                    raise TypeError(f"In argument '{name}': {e}")
+
+            return func(*args, **kwargs)
+        return wrapper
+
+    @staticmethod
+    def _check_type(value, expected, param=None):
+        origin = get_origin(expected)
+        args = get_args(expected)
+
+        if origin is not None:
+            if not isinstance(value, origin):
+                raise TypeError(f"expected {origin.__name__}, got {type(value).__name__}")
+            if origin is list and args:
+                for i, item in enumerate(value):
+                    try:
+                        Base._check_type(item, args[0])
+                    except TypeError as e:
+                        raise TypeError(f"{param}[{i}] -> {e}")
+        else:
+            if not isinstance(value, expected):
+                raise TypeError(f"expected {expected.__name__}, got {type(value).__name__}")
 
     @staticmethod
     def safe_transform_numeric(fn: Callable[[List[int]], List[int]]) -> Callable[[List[int]], List[int]]:

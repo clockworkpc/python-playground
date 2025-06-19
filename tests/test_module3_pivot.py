@@ -26,7 +26,7 @@ def test_rotate_2x2_extra():
     assert Matrices.rotate_matrix(90, True, [[1, 2], [3, 4]]) == [[3, 1], [4, 2]]
 
 def test_rotate_3x3():
-    assert Matrices.rotate_90_clockwise([[1,2,3], [4,5,6], [7,8,9]]) == [[7,4,1], [8,5,2], [9,6,3]]
+    assert Matrices.rotate_matrix(90, True, [[1,2,3], [4,5,6], [7,8,9]]) == [[7,4,1], [8,5,2], [9,6,3]]
 
 def test_rotate_identity():
     assert Matrices.rotate_90_clockwise([[1,0], [0,1]]) == [[0,1], [1,0]]

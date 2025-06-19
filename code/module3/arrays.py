@@ -10,6 +10,7 @@ class Arrays(Base):
     _rotation_registry = {}
 
     @staticmethod
+    @Base.enforce_types
     def sum_nested_matrix(matrix: List[List[int]]) -> int:
         return sum(sum(row) for row in matrix)
 
@@ -62,27 +63,6 @@ class Arrays(Base):
         merged.extend(b[j:])
 
         return merged
-
-    # @staticmethod
-    # def interleave_arrays(a: List[int], b: List[int]) -> List[int]:
-    #     x, y = 0, 0
-    #     next_pointer = 'x'
-    #     merged = []
-    #
-    #     while x < len(a) and y < len(b):
-    #         if next_pointer == 'x':
-    #             merged.append(a[x])
-    #             x += 1
-    #             next_pointer = 'y'
-    #         elif next_pointer == 'y':
-    #             merged.append(b[y])
-    #             y += 1
-    #             next_pointer = 'x'
-    #
-    #     merged.extend(a[x:])
-    #     merged.extend(b[y:])
-    #
-    #     return merged
 
     @staticmethod
     def interleave_arrays(a: List[int], b: List[int]) -> List[int]:
