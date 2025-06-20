@@ -1,6 +1,6 @@
 # type: ignore[arg-type]
 
-from code.module3.arrays import Arrays
+from code.module3.array_merging import ArrayMerging as Arrays
 import pytest
 
 def test_merge_disjoint():
