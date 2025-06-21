@@ -15,8 +15,16 @@ class MatrixOps(Base):
         return sum(sum(row) for row in matrix)
 
     @staticmethod
-    def flatten_2d(nested: List[List[int]]) -> List[int]:
-        return [item for sublist in nested for item in sublist]
+    def flatten_2d(matrix: List[List[int]]) -> List[int]:
+        ary = []
+        for row in matrix:
+            for cell in row:
+                ary.append(cell)
+        return ary
+    
+    @staticmethod
+    def flatten_2d(matrix: List[List[int]]) -> List[int]:
+        return [cell for row in matrix for cell in row]
 
     @staticmethod
     def transpose(matrix: List[List[int]]) -> List[List[int]]:
