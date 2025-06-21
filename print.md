@@ -41,6 +41,99 @@
 ```
 <div style="page-break-after: always;"></div>
 
+### code/module1/module1.py
+
+```python
+   1: from base import Base
+   2: from typing import List
+   3: 
+   4: class Module1(Base):
+   5:     @staticmethod
+   6:     def concatenate_strings(a: str, b: str) -> str:
+   7:         return f"{a} {b}"
+   8: 
+   9:     @staticmethod
+  10:     def uppercase(a:str) -> str:
+  11:         return a.upper()
+  12: 
+  13:     @staticmethod
+  14:     def strip_whitespace(a: str) -> str:
+  15:         return a.strip()
+  16: 
+  17:     @staticmethod
+  18:     def find_substring(a: str, b: str) -> int:
+  19:         return a.find(b)
+  20: 
+  21:     @staticmethod
+  22:     def replace_substring(a: str, b: str, c: str) -> str:
+  23:         return a.replace(b, c)
+  24: 
+  25:     @staticmethod
+  26:     def add(a: int, b: int) -> int:
+  27:         return a + b
+  28: 
+  29:     @staticmethod
+  30:     def divide(a: int, b: int) -> float:
+  31:         return a / b
+  32: 
+  33:     @staticmethod
+  34:     def modulus(a: int, b: int) -> int:
+  35:         return a % b
+  36: 
+  37:     @staticmethod
+  38:     def add_floats(a: float, b: float) -> float:
+  39:         return a + b
+  40: 
+  41:     @staticmethod
+  42:     def power(a: int, b: int) -> int:
+  43:         return a ** b
+  44: 
+  45:     @staticmethod
+  46:     def append_to_list(a: list, b: int) -> list:
+  47:         a.append(b)
+  48:         return a
+  49: 
+  50:     @staticmethod
+  51:     def extend_list(a: list, b: list) -> list:
+  52:         return a + b
+  53: 
+  54:     @staticmethod
+  55:     def pop_from_list(a: list) -> int:
+  56:         return a.pop()
+  57: 
+  58:     @staticmethod
+  59:     def remove_from_list(a: list, b: int) -> list:
+  60:         a.remove(2)
+  61:         return a
+  62: 
+  63:     @staticmethod
+  64:     def sort_list(a: list) -> list:
+  65:         a.sort(reverse=False)
+  66:         return a
+  67:     
+  68:     @staticmethod
+  69:     def reverse_list(a: list) -> list:
+  70:         a.sort(reverse=True)
+  71:         return a
+  72: 
+  73:     @staticmethod
+  74:     def index_of_element(a: List[str], b: str) -> int:
+  75:         return a.index(b)
+  76: 
+  77:     @staticmethod
+  78:     def slice_list(a: List[int], start: int, length: int) -> List[int]:
+  79:         return a[start:length]
+  80: 
+  81:     @staticmethod
+  82:     def double_elements(a: List[int]) -> List[int]:
+  83:         return [n * 2 for n in a]
+  84: 
+  85:     @staticmethod
+  86:     def sum_list(a: List[int]) -> int:
+  87:         return sum(a)
+```
+<div style="page-break-after: always;"></div>
+
 ### code/module1/number_ops.py
 
 ```python
@@ -165,6 +258,97 @@
   22:         """Concatenates two lists into one."""
   23:         return a + b
   24: 
+```
+<div style="page-break-after: always;"></div>
+
+### code/module2/module2.py
+
+```python
+   1: from typing import List
+   2: 
+   3: class Module2:
+   4:     @staticmethod
+   5:     def repeat_string(a: str, b: int) -> str:
+   6:         return a * 3
+   7: 
+   8:     @staticmethod
+   9:     def is_palindrome(a: str) -> bool:
+  10:         return a == a[::-1]
+  11: 
+  12:     @staticmethod
+  13:     def string_length(a: str) -> int:
+  14:         return len(a)
+  15: 
+  16:     @staticmethod
+  17:     def capitalize_words(words: str) -> str:
+  18:         ary = [word.capitalize() for word in words.split()] 
+  19:         return ' '.join(ary)
+  20: 
+  21:     @staticmethod
+  22:     def join_with_dash(chars: List[str]) -> str:
+  23:         return '-'.join(chars)
+  24: 
+  25:     @staticmethod
+  26:     def multiply(a: int, b: int) -> int:
+  27:         return a * b
+  28: 
+  29:     @staticmethod
+  30:     def is_even(a: int) -> bool:
+  31:         return a % 2 == 0
+  32: 
+  33:     @staticmethod
+  34:     def floor_divide(a: int, b: int) -> int:
+  35:         return a // b
+  36: 
+  37:     @staticmethod
+  38:     def round_to_int(a: float) -> int:
+  39:         return round(a)
+  40: 
+  41:     @staticmethod
+  42:     def abs_value(a: int) -> int:
+  43:         return abs(a)
+  44: 
+  45:     @staticmethod
+  46:     def merge_lists(a: List[int], b: List[int]) -> List[int]:
+  47:         return a + b
+  48: 
+  49:     @staticmethod
+  50:     def list_difference(a: List[int], b: List[int]) -> List[int]:
+  51:         return list(set(a) - set(b))
+  52: 
+  53:     @staticmethod
+  54:     def list_intersection(a: List[int], b: List[int]) -> List[int]:
+  55:         return list(set(a) & set(b))
+  56: 
+  57:     @staticmethod
+  58:     def list_max(a: List[int]) -> int:
+  59:         return max(a)
+  60: 
+  61:     @staticmethod
+  62:     def list_min(a: List[int]) -> int:
+  63:         return min(a)
+  64: 
+  65:     @staticmethod
+  66:     def unique_elements(a: List[int]) -> List[int]:
+  67:         return list(set(a))
+  68: 
+  69:     @staticmethod
+  70:     def filter_even(nums: List[int]) -> List[int]:
+  71:         return [num for num in nums if num % 2 == 0]
+  72: 
+  73:     @staticmethod
+  74:     def count_occurrences(nums: List[int], e: int) -> int:
+  75:         return len([num for num in nums if num == e])
+  76: 
+  77:     @staticmethod
+  78:     def list_to_string(nums: List[int]) -> str:
+  79:         return ','.join([str(num) for num in nums])
+  80: 
+  81:     @staticmethod
+  82:     def list_length(a: List[int]) -> int:
+  83:         return len(a)
+  84: 
+  85: 
 ```
 <div style="page-break-after: always;"></div>
 
@@ -316,7 +500,26 @@
   18:         for k, v in d.items():
   19:             inverted_dict[v] = k
   20:         return inverted_dict
-  21: 
+  21:     
+  22:     @staticmethod
+  23:     def get_value(hash: dict, key: str) -> int:
+  24:         return hash[key]
+  25: 
+  26:     @staticmethod
+  27:     def has_key(d: dict, key: str) -> bool:
+  28:         return key in d.keys()
+  29:     
+  30:     @staticmethod
+  31:     def merge_dicts(a: dict, b: dict) -> dict:
+  32:         for k,v in b.items():
+  33:             a[k] = v
+  34:         return a
+  35: 
+  36:     @staticmethod
+  37:     def dict_keys(d: dict) -> List[str]:
+  38:         return list(d.keys())
+  39: 
+  40: 
 ```
 <div style="page-break-after: always;"></div>
 
@@ -366,12 +569,22 @@
   15:         return sum(sum(row) for row in matrix)
   16: 
   17:     @staticmethod
-  18:     def flatten_2d(nested: List[List[int]]) -> List[int]:
-  19:         return [item for sublist in nested for item in sublist]
-  20: 
-  21:     @staticmethod
-  22:     def transpose(matrix: List[List[int]]) -> List[List[int]]:
-  23:         return list(map(list, zip(*matrix)))
+  18:     def flatten_2d(matrix: List[List[int]]) -> List[int]:
+  19:         ary = []
+  20:         for row in matrix:
+  21:             for cell in row:
+  22:                 ary.append(cell)
+  23:         return ary
+  24:     
+  25:     @staticmethod
+  26:     def flatten_2d(matrix: List[List[int]]) -> List[int]:
+  27:         return [cell for row in matrix for cell in row]
+  28: 
+  29:     @staticmethod
+  30:     def transpose(matrix: List[List[int]]) -> List[List[int]]:
+  31:         return list(map(list, zip(*matrix)))
+  32: 
+  33: 
 ```
 <div style="page-break-after: always;"></div>
 
@@ -467,6 +680,89 @@
 ```
 <div style="page-break-after: always;"></div>
 
+### code/module3/subtasks.py
+
+```python
+   1: from typing import List, Dict, Any
+   2: import math
+   3: from itertools import count
+   4: 
+   5: 
+   6: class Subtask:
+   7:     def sum_range(a: int, b: int) -> int:
+   8:         return sum(list(range(a, b + 1)))
+   9: 
+  10:     def fibonacci(a: int) -> int:
+  11:         if a < 0:
+  12:             raise ValueError("Input should be a non-negative integer.")
+  13:         elif a == 0:
+  14:             return 0
+  15:         elif a == 1:
+  16:             return 1
+  17: 
+  18:         # Initialize the first two Fibonacci numbers
+  19:         ary = [0, 1]
+  20: 
+  21:         # Generate Fibonacci numbers up to the a-th index
+  22:         for x in range(2, a + 1):  # Start from 2 to a
+  23:             next_fib = ary[x - 1] + ary[x - 2]  # Sum of the last two numbers
+  24:             ary.append(next_fib)
+  25: 
+  26:         return ary[a]
+  27: 
+  28:     def factorial(n: int) -> int:
+  29:         return math.prod(list(range(1, n + 1)))
+  30: 
+  31:     def greatest_common_divisor(a: int, b: int) -> int:
+  32:         if a == b:
+  33:             return a
+  34: 
+  35:         smaller_num = a if a < b else b
+  36:         ary = []
+  37:         for x in list(range(1, smaller_num + 1)):
+  38:             common_divisor = a % x == 0 and b % x == 0
+  39:             if common_divisor:
+  40:                 ary.append(x)
+  41: 
+  42:         return max(ary)
+  43: 
+  44:     def least_common_multiple(a: int, b: int) -> int:
+  45:         smaller = a if a < b else b
+  46:         for i in count(start=smaller, step=smaller):
+  47:             match = i % b == 0
+  48:             print(f"{i} % {b} == 0 ? {match}")
+  49:             if match:
+  50:                 return i
+```
+<div style="page-break-after: always;"></div>
+
+### code/module4/abstract_data_types.py
+
+```python
+   1: from base import Base
+   2: from typing import List
+   3: 
+   4: 
+   5: class AbstractDataTypes(Base):
+   6:     @staticmethod
+   7:     def stack_operations(cmds: List[str]) -> List[int]:
+   8:         counter = 1
+   9:         ary = []
+  10:         for cmd in cmds:
+  11:             if cmd in ["push", "enqueue"]:
+  12:                 ary.append(counter)
+  13:                 counter += 1
+  14:             elif cmd in ["pop", "dequeue"]:
+  15:                 ary.pop()
+  16:                 counter -= 1
+  17:         return ary
+  18: 
+  19:     @staticmethod
+  20:     def queue_operations(cmds: List[str]) -> List[int]:
+  21:         return AbstractDataTypes.stack_operations(cmds)
+```
+<div style="page-break-after: always;"></div>
+
 ### code/module4/coin_change.py
 
 ```python
@@ -507,16 +803,27 @@
    3: 
    4: class DivideAndConquerMaxSubarray(Base):
    5:     def __init__(self, value: List[int]):
-   6:         self.value = value
-   7: 
-   8:     @staticmethod
-   9:     def has_pair_with_sum(nums: List[int], target: int) -> bool:
-  10:         seen = set()
-  11:         for num in nums:
-  12:             if (target - num) in seen:
-  13:                 return True
-  14:             seen.add(num)
-  15:         return False
+   6:         # Store the input list as an instance variable
+   7:         self.value = value
+   8: 
+   9:     @staticmethod
+  10:     def has_pair_with_sum(nums: List[int], target: int) -> bool:
+  11:         # Initialize an empty set to store previously seen numbers
+  12:         seen = set()
+  13: 
+  14:         # Iterate through each number in the input list
+  15:         for num in nums:
+  16:             # Check if the complement (target - num) is already in the set
+  17:             if (target - num) in seen:
+  18:                 # If found, return True since a pair exists that sums to target
+  19:                 return True
+  20: 
+  21:             # Otherwise, add the current number to the set
+  22:             seen.add(num)
+  23: 
+  24:         # If no such pair was found after the loop, return False
+  25:         return False
+  26: 
 ```
 <div style="page-break-after: always;"></div>
 
