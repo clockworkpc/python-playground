@@ -18,4 +18,23 @@ class Hashmaps(Base):
         for k, v in d.items():
             inverted_dict[v] = k
         return inverted_dict
+    
+    @staticmethod
+    def get_value(hash: dict, key: str) -> int:
+        return hash[key]
+
+    @staticmethod
+    def has_key(d: dict, key: str) -> bool:
+        return key in d.keys()
+    
+    @staticmethod
+    def merge_dicts(a: dict, b: dict) -> dict:
+        for k,v in b.items():
+            a[k] = v
+        return a
+
+    @staticmethod
+    def dict_keys(d: dict) -> List[str]:
+        return list(d.keys())
+
 

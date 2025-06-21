@@ -49,8 +49,7 @@ It contains tests and solutions under the following headings:
 - Manipulating multidimensional arrays, for example:
     * Iterating over elements within nested arrays in a given order
     * Transposing or pivoting the rows and columns values in a 2D array
-- Using built in hashmaps to store 
-strings or integers as keys
+- Using built in hashmaps to store strings or integers as keys
 
 ## Module 4: Problem Solving
 

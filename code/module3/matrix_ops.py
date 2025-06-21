@@ -21,3 +21,5 @@ class MatrixOps(Base):
     @staticmethod
     def transpose(matrix: List[List[int]]) -> List[List[int]]:
         return list(map(list, zip(*matrix)))
+
+
