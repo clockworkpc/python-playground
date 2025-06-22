@@ -1,7 +1,8 @@
 from base import Base
 from typing import List, Union, Any, Optional
 
-class DivideAndConquerMaxSubarray(Base):
+
+class SubarrayOps(Base):
     def __init__(self, value: List[int]):
         # Store the input list as an instance variable
         self.value = value
@@ -23,4 +24,3 @@ class DivideAndConquerMaxSubarray(Base):
 
         # If no such pair was found after the loop, return False
         return False
-
